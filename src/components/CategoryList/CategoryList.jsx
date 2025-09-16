@@ -55,7 +55,7 @@ const CategoryList = () => {
                                 </div>
                                 <div className="flex-grow-1">
                                     <h5 className="mb-1 text-white">{category.name}</h5>
-                                    <p className="mb-0 text-white">{category.items}5 Items</p>
+                                    <p className="mb-0 text-white">{category.items} Items</p>
                                 </div>
                                 <div>
                                     <button className="btn btn-danger btn-sm" onClick={() => deleteByCategoryId(category.categoryId)}>

@@ -2,6 +2,7 @@ import {useContext, useState} from "react";
 import {AppContext} from "../../context/AppContext.jsx";
 import {deleteItem} from "../../service/ItemService.js";
 import toast from "react-hot-toast";
+import './ItemList.css'
 
 const ItemList = () => {
 
@@ -50,8 +51,8 @@ const ItemList = () => {
                     <div className="col-12" key={index}>
                         <div className="card p-3 bg-dark">
                             <div className="d-flex align-items-center">
-                                <div className="item-image">
-                                    <img src={item.imgUrl} alt={item.name} />
+                                <div style={{marginRight: '15px'}}>
+                                    <img src={item.imgUrl} alt={item.name} className="item-image"/>
                                 </div>
                                 <div className="flex-grow-1">
                                     <h6 className="mb-1 text-white">{item.name}</h6>
@@ -59,7 +60,7 @@ const ItemList = () => {
                                         Category: {item.categoryName}
                                     </p>
                                     <span className="mb-0 text-block badge rounded-pill text-bg-warning">
-                                        &#8377;{item.price}
+                                        ${item.price}
                                     </span>
                                 </div>
                                 <div>
