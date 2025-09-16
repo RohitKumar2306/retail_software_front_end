@@ -6,12 +6,12 @@ import {addItem} from "../../service/ItemService.js";
 
 const ItemForm = () => {
 
-    const {categories} = useContext(AppContext);
+    const {categories, setItemsData, itemsData} = useContext(AppContext);
 
     const [image, setImage] = useState(false);
     const [data, setData] = useState({
         name: "",
-        category: "",
+        categoryId: "",
         price: "",
         description: ""
     });
@@ -27,20 +27,31 @@ const ItemForm = () => {
         e.preventDefault();
         setLoading(true);
         const formData = new FormData();
-        formData.append("item", data);
+        formData.append("item", JSON.stringify(data));
         formData.append("file", image);
         try {
             if (!image) {
                 toast.error("Select image");
                 return;
             }
-
             const response = await addItem(formData);
-            if (response.status === 200) {
-
+            if (response.status === 201) {
+                setItemsData([...itemsData, response.data]);
+                // TODO: Update the category state
+                toast.success("Image added!");
+                setData({
+                    name: "",
+                    categoryId: "",
+                    price: "",
+                    description: ""
+                })
+                setImage(false);
+            } else {
+                toast.error("Unable to add item");
             }
         } catch (e) {
-
+            console.error(e);
+            toast.error("Unable to add item");
         }
     }
 
@@ -78,11 +89,11 @@ const ItemForm = () => {
                                         Category
                                     </label>
                                     <select
-                                        name="category"
-                                        id="category"
+                                        name="categoryId"
+                                        id="categoryId"
                                         className="form-control"
                                         onChange={onChangeHandler}
-                                        value={data.category}
+                                        value={data.categoryId}
                                     >
                                         <option value="">--Select Category--</option>
                                         {categories.map((category, index) => (

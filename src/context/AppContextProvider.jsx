@@ -1,17 +1,21 @@
 import {useEffect, useState} from "react";
-import {fetchCategories} from "../service/CategoryService.js";
 import {AppContext} from "./AppContext.jsx";
+import {fetchCategories} from "../service/CategoryService.js";
+import {fetchItems} from "../service/ItemService.js";
 
 export const AppContextProvider = (props) => {
 
     const [categories, setCategories] = useState([]);
+    const [itemsData, setItemsData] = useState([]);
     const [auth, setAuth] = useState({token: null, role: null});
 
     useEffect(() => {
         async function loadData() {
             try {
-                const data = await fetchCategories(auth.token);
-                setCategories(data);
+                const response = await fetchCategories();
+                const itemResponse = await fetchItems();
+                setCategories(response.data);
+                setItemsData(itemResponse.data);
             } catch (err) {
                 console.error("Failed to load categories:", err);
             }
@@ -28,7 +32,9 @@ export const AppContextProvider = (props) => {
         categories,
         setCategories,
         auth,
-        setAuthData
+        setAuthData,
+        itemsData,
+        setItemsData
     }
 
     return <AppContext.Provider value={contextValue}>
