@@ -25,7 +25,7 @@ const Menubar = () => {
                         <Link className="nav-link" to="/items">Manage Items</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/category">Manage Categories</Link>
+                        <Link className="nav-link" to="/categories">Manage Categories</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/users">Manage Users</Link>
