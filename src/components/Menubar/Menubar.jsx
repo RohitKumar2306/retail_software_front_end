@@ -58,9 +58,9 @@ const Menubar = () => {
                                 <a href="#" className="dropdown-item">
                                     Activity log
                                 </a>
-                                <li>
+                                <a>
                                     <hr className="dropdown-divider"/>
-                                </li>
+                                </a>
                                 <a href="#" className="dropdown-item" onClick={logout}>
                                     Logout
                                 </a>
