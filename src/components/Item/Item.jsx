@@ -25,7 +25,7 @@ const Item = ({itemName, itemPrice, itemImage, itemId}) => {
                 <p className="mb-0 fw-bold text-light">${itemPrice}</p>
             </div>
             <div className="d-flex flex-column justify-content-between align-items-center ms-3"
-                style={{height: '100%'}}
+                 style={{height: '100%'}}
             >
                 <i className="bi bi-cart-plus fs-4 text-warning">
                     <button className="btn btn-success btn-sm" onClick={handleAddToCart}>
