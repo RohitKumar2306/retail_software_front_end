@@ -46,7 +46,7 @@ const OrderHistory = () => {
 
     return (
         <div className="orders-history-container">
-            <h2 className="mb-2 text-light">Recent Orders</h2>
+            <h2 className="mb-2 text-light">Order History</h2>
             <div className="table-responsive">
                 <table className="table table-striped table-hover">
                     <thead className="table-dark">
@@ -70,13 +70,12 @@ const OrderHistory = () => {
                                 <small className="text-muted">{order.phoneNumber}</small>
                             </td>
                             <td>{formatItems(order.items)}</td>
-                            <td>${order.grandTotal}</td>
+                            <td>${order.grandTotal.toFixed(2)}</td>
                             <td>{order.paymentMethod}</td>
                             <td>
                                 <span className={`badge ${order.paymentDetails?.status === 'COMPLETED' ? 'bg-success' : 'bg-warning text-dark'}`}>{order.paymentDetails?.status || 'PENDING'}</span>
                             </td>
                             <td>{formatDate(order.createdAt)}</td>
-
                         </tr>
                     ))}
                     </tbody>
