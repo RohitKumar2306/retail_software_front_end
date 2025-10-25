@@ -9,7 +9,7 @@ import CartSummary from "../../components/CartSummary/CartSummary.jsx";
 
 
 const Explore = () => {
-    const {categories} = useContext(AppContext);
+    const {categories, itemsData} = useContext(AppContext);
     const [selectedCategory, setSelectedCategory] = useState("");
     const [customerName, setCustomerName] = useState("");
     const [mobileNumber, setMobileNumber] = useState("");
@@ -47,7 +47,7 @@ const Explore = () => {
                         customerName={customerName}
                         mobileNumber={mobileNumber}
                         setCustomerName={setCustomerName}
-                        setMobileNumber={setMobileNumber}s
+                        setMobileNumber={setMobileNumber}
                     />
                 </div>
             </div>

@@ -1,0 +1,34 @@
+.manage-inventory-page {
+    background-color: #2C3335;
+    min-height: 100vh;
+    color: #e9ecef;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mi-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    height: 100%;
+    background: transparent;
+}
+
+.mi-update-btn {
+    width: 100%;
+    height: 44px;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
+    transition: transform .06s ease, box-shadow .12s ease;
+}
+
+.mi-update-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,.32);
+}
+
+@media (max-width: 576px) {
+    .mi-update-btn { height: 42px; }
+}

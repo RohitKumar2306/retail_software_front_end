@@ -1,11 +1,14 @@
 import './OrderHistory.css';
 import {useEffect, useState} from "react";
 import {latestOrders} from "../../service/OrderService.js";
+import ReceiptPopUp from "../../components/ReceiptPopUp/ReceiptPopUp.jsx";
 
 const OrderHistory = () => {
 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [showReceipt, setShowReceipt] = useState(false);
+    const [selectedOrder, setSelectedOrder] = useState(null);
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -36,6 +39,15 @@ const OrderHistory = () => {
         return new Date(dateString).toLocaleDateString('en-US', options);
     }
 
+    const openReceipt = (order) => {
+        // ReceiptPopUp expects "subtotal" (lowercase) but DTO has "subTotal"
+        const normalized = { ...order, subtotal: order.subTotal };
+        setSelectedOrder(normalized);
+        setShowReceipt(true);
+    };
+    const closeReceipt = () => setShowReceipt(false);
+    const printReceipt = () => window.print();
+
     if (loading) {
         return <div className="text-center py-4">Loading Orders....</div>
     }
@@ -62,7 +74,13 @@ const OrderHistory = () => {
                     </thead>
                     <tbody>
                     {orders.map(order => (
-                        <tr key={order.orderId}>
+                        <tr
+                            key={order.orderId}
+                            onClick={() => openReceipt(order)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => (e.key === 'Enter' ? openReceipt(order) : null)}
+                        >
                             <td>{order.orderId}</td>
                             <td>
                                 {order.customerName}
@@ -81,6 +99,15 @@ const OrderHistory = () => {
                     </tbody>
                 </table>
             </div>
+
+            {showReceipt && selectedOrder && (
+                <ReceiptPopUp
+                    orderDetails={selectedOrder}
+                    onClose={closeReceipt}
+                    onPrint={printReceipt}
+                />
+            )}
+
         </div>
     )
 }

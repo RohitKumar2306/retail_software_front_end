@@ -4,9 +4,45 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.item-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    border: 3px solid white;
+.item-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
 }
+
+/* keep all item cards the same visual height */
+.item-card {
+    min-height: 120px;          /* adjust to your design */
+}
+
+/* image stays tidy */
+.item-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* clamp long names to two lines with ellipsis */
+.item-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;      /* number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;     /* avoid overly long tokens */
+    line-height: 1.2;
+    max-height: calc(1.2em * 2); /* keeps the block from growing */
+}
+
+/* (optional) ensure same height inside the inventory tiles */
+.mi-tile .item-card {
+    min-height: 120px;
+}
+
+
+.item-badge.low  { background: rgba(246,195,67,.2); color: #f6c343; }
+.item-badge.out  { background: rgba(239,68,68,.2);  color: #ef4444; }
+.item-badge.ok   { background: rgba(35,196,131,.18); color: #23c483; }

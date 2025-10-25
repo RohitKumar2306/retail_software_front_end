@@ -1,0 +1,102 @@
+/* Layout: two KPI-like cards side by side, responsive */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 15px;
+}
+
+/* Card look — matches stat-card theme */
+.inv-card {
+    background: #343a40;
+    border-radius: 10px;
+    padding: 12px;
+    color: #e9ecef;
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+}
+
+/* Header same vibe as KPI cards */
+.inv-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.inv-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+}
+
+.inv-icon-warning { background: rgba(255, 193, 7, .15); color: #ffc107; }
+.inv-icon-danger  { background: rgba(220, 53, 69, .15); color: #dc3545; }
+
+.inv-header-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inv-title {
+    margin: 0;
+    font-size: 1rem;
+    color: #adb5bd;
+}
+
+/* Scrollable body inside each card */
+.inv-scroll {
+    margin-top: 6px;
+    overflow-x: hidden;
+    overflow-y: auto;        /* adjust to the height you want */
+    padding-right: 6px;        /* keep scrollbar off content */
+}
+
+/* Subtle custom scrollbar */
+.inv-scroll::-webkit-scrollbar { width: 8px; }
+.inv-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.15);
+    border-radius: 8px;
+}
+.inv-scroll:hover::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); }
+
+.inv-empty {
+    opacity: .8;
+    font-size: .95rem;
+    padding: 10px 4px;
+}
+
+/* Tile under each list item: Item card + full width button */
+.mi-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mi-update-btn {
+    height: 40px;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
+    transition: transform .06s ease, box-shadow .12s ease;
+}
+.mi-update-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,.32);
+}
+
+/* Small screens: cards stack; grid items adapt */
+@media (max-width: 576px) {
+    .inventory-grid { grid-template-columns: 1fr; }
+    .inv-scroll { max-height: 300px; }
+}
+
+.inv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}

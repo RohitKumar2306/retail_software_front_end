@@ -1,0 +1,45 @@
+.inv-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    display: grid;
+    place-items: center;
+    z-index: 1050; /* above app */
+}
+
+.inv-modal {
+    width: min(560px, 95vw);
+    background: #1f2629;
+    color: #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+
+.inv-modal-header,
+.inv-modal-footer {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inv-modal-footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+    border-bottom: none;
+    gap: 8px;
+}
+
+.inv-modal-body {
+    padding: 16px;
+}
+
+.btn-close {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    opacity: .8;
+}
+.btn-close:hover { opacity: 1; }

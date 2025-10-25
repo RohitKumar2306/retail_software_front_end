@@ -40,3 +40,21 @@
         white-space: nowrap;
     }
 }
+
+/* Make the whole row feel clickable */
+.orders-history-container .table.table-hover tbody tr {
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+/* Apply hover color to cells (more reliable than styling <tr> alone) */
+.orders-history-container .table.table-hover tbody tr:hover > td,
+.orders-history-container .table.table-hover tbody tr:focus-within > td {
+    background-color: #27313a; /* pick your color */
+    color: #e9eef3;
+}
+
+/* Keep header unchanged */
+.orders-history-container .table thead th {
+    background-color: #141a20;
+}

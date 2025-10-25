@@ -54,10 +54,10 @@ const ReceiptPopUp = ({orderDetails, onClose, onPrint}) => {
                     orderDetails.paymentMethod === 'UPI' && (
                         <>
                             <p>
-                                <strong>Razorpay Order ID: </strong> {orderDetails.razorpayOrderId}
+                                <strong>Razorpay Order ID: </strong> {orderDetails.paymentDetails.razorpayOrderId}
                             </p>
                             <p>
-                                <strong>Razorpay Payment ID: </strong> {orderDetails.razorpayPaymentId}
+                                <strong>Razorpay Payment ID: </strong> {orderDetails.paymentDetails.razorpayPaymentId}
                             </p>
                         </>
                     )

@@ -30,6 +30,9 @@ const DisplayItems = ({selectedCategory}) => {
                             itemPrice={item.price}
                             itemImage={item.imgUrl}
                             itemId={item.itemId}
+                            stockQty={item.stockQuantity}
+                            lowStockThreshold={item.lowStockThreshold}
+                            isManageInventory={false}
                         />
                     </div>
                 ))}

@@ -12,3 +12,6 @@ export const fetchItems = async () => {
     return await axios.get(`http://localhost:8080/api/v1.0/items`, {headers: {'Authorization': 'Bearer ' + localStorage.getItem("token")}});
 }
 
+export const updateItemStock = async (itemId, item) => {
+    return await axios.post(`http://localhost:8080/api/v1.0/admin/update/${itemId}`, item, {headers: {'Authorization': 'Bearer ' + localStorage.getItem("token")}});
+};

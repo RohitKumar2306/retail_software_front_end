@@ -13,7 +13,8 @@ const ItemForm = () => {
         name: "",
         categoryId: "",
         price: "",
-        description: ""
+        description: "",
+        stockQuantity: ""
     });
     const [loading, setLoading] = useState(false);
 
@@ -45,12 +46,13 @@ const ItemForm = () => {
                         category
                     )
                 );
-                toast.success("Image added!");
+                toast.success("Product added successfully.");
                 setData({
                     name: "",
                     categoryId: "",
                     price: "",
-                    description: ""
+                    description: "",
+                    stockQuantity: ""
                 })
                 setImage(false);
             } else {
@@ -121,6 +123,18 @@ const ItemForm = () => {
                                     />
                                 </div>
                                 <div className="mb-3">
+                                    <label htmlFor="price" className="form-label">Stock Quantity</label>
+                                    <input
+                                        type="number"
+                                        name="stockQuantity"
+                                        id="stockQuantity"
+                                        className="form-control"
+                                        placeholder="Item Stock Quantity"
+                                        onChange={onChangeHandler}
+                                        value={data.stockQuantity}
+                                    />
+                                </div>
+                                <div className="mb-3">
                                     <label htmlFor="name" className="form-label">Description</label>
                                     <textarea
                                         rows={5}
@@ -130,7 +144,7 @@ const ItemForm = () => {
                                         placeholder="Write content here.."
                                         onChange={onChangeHandler}
                                         value={data.description}>
-                                </textarea>
+                                    </textarea>
                                 </div>
                                 <button type="submit" className="btn btn-warning w-100" disabled={loading}>
                                     {loading ? 'Loading...' : 'Save'}

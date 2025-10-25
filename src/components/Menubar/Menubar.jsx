@@ -52,6 +52,9 @@ const Menubar = () => {
                             <li className="nav-item">
                                 <Link className={`nav-link ${isActive('/users') ? 'fw-bold text-warning' : ''}`} to="/users">Manage Users</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${isActive('/manage_inventory') ? 'fw-bold text-warning' : ''}`} to="/manage_inventory">Manage Inventory</Link>
+                            </li>
                         </>
                     )}
                     <li className="nav-item">
