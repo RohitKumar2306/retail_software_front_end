@@ -61,7 +61,6 @@ const Menubar = () => {
                         <Link className={`nav-link ${isActive('/orders_history') ? 'fw-bold text-warning' : ''}`} to="/orders_history">Order History</Link>
                     </li>
                 </ul>
-                {/*Add the dropdown for userprofile*/}
                 <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                     <li className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

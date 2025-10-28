@@ -11,3 +11,7 @@ export const fetchLowStock = async () => {
 export const fetchOutOfStock = async () => {
     return await axios.get(`http://localhost:8080/api/v1.0/dashboard/outOfStock`, {headers: {'Authorization': 'Bearer ' + localStorage.getItem("token")}});
 }
+
+export const fetchTopSellers = async (time) => {
+    return await axios.get(`http://localhost:8080/api/v1.0/dashboard/topSellers/${time}`, {headers: {'Authorization': 'Bearer ' + localStorage.getItem("token")}});
+}

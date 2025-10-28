@@ -143,3 +143,206 @@ body, html {
 }
 
 .inventory-grid { margin-top: 20px; }
+
+/* Reusable section header (matches Recent Orders look) */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.35rem;
+}
+
+.section-icon {
+    font-size: 1.3rem;
+    color: #adb5bd;
+}
+
+/* Selector styling to match dark theme */
+.dash-select {
+    background: #2c3335;
+    color: #e9ecef;
+    border: 1px solid #495057;
+    border-radius: 8px;
+    padding: 6px 10px;
+    outline: none;
+}
+.dash-select:focus {
+    border-color: #20c997;
+}
+
+/* Scrollable body like your tables */
+.top-table-wrap {
+    max-height: 360px;          /* adjust if you want taller */
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 8px;
+}
+
+/* Empty state */
+.top-empty {
+    color: #adb5bd;
+    background: #2b3035;
+    border: 1px dashed #495057;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+}
+
+/* Table complements your .orders-table */
+.orders-table thead th.text-end,
+.orders-table td.text-end { text-align: right; }
+
+/* Slightly stronger hover to highlight active row */
+.orders-table tbody tr:hover {
+    background-color: #3c4349;
+}
+
+/* Money emphasis */
+.money {
+    font-weight: 700;
+    color: #f8f9fa;
+}
+
+/* Customer cell with avatar */
+.cust-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+}
+
+.cust-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(32, 201, 151, 0.12);
+    color: #20c997;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    border: 1px solid rgba(32, 201, 151, 0.35);
+}
+
+.cust-name {
+    color: #e9ecef;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Make the card visually consistent with others */
+.recent-orders-card .section-actions { display: flex; gap: 10px; }
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+    .cust-cell { min-width: 0; }
+    .top-table-wrap { max-height: 300px; }
+}
+
+/* ── Inventory Alerts & Top Customers: shared header look ───────────── */
+.inventory-card .section-title,
+.top-customers-card .section-title {
+    color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.35rem;
+}
+
+.top-customers-card .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.top-customers-card .section-icon {
+    font-size: 1.3rem;
+    color: #adb5bd;
+}
+
+/* Only style the select inside "Top Customers" */
+.top-customers-card .dash-select {
+    background: #2c3335;
+    color: #e9ecef;
+    border: 1px solid #495057;
+    border-radius: 8px;
+    padding: 6px 10px;
+    outline: none;
+}
+.top-customers-card .dash-select:focus {
+    border-color: #20c997;
+}
+
+/* Scrollable body ONLY for the Top Customers table area */
+.top-customers-card .top-table-wrap {
+    max-height: 360px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 8px;
+}
+
+/* Empty state message only in Top Customers */
+.top-customers-card .top-empty {
+    color: #adb5bd;
+    background: #2b3035;
+    border: 1px dashed #495057;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+}
+
+/* Stronger hover ONLY inside Top Customers table */
+.top-customers-card .orders-table tbody tr:hover {
+    background-color: #3c4349;
+}
+
+/* Money emphasis & customer cell — scoped to Top Customers */
+.top-customers-card .money {
+    font-weight: 700;
+    color: #f8f9fa;
+}
+.top-customers-card .cust-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+}
+.top-customers-card .cust-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(32, 201, 151, 0.12);
+    color: #20c997;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    border: 1px solid rgba(32, 201, 151, 0.35);
+}
+.top-customers-card .cust-name {
+    color: #e9ecef;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Optional mobile tweak just for Top Customers section */
+@media (max-width: 768px) {
+    .top-customers-card .cust-cell { min-width: 0; }
+    .top-customers-card .top-table-wrap { max-height: 300px; }
+}
+
+/* If you want a consistent vertical rhythm between these two cards */
+.inventory-grid { margin-top: 20px; }
