@@ -59,25 +59,29 @@ export const AppContextProvider = (props) => {
     };
 
     useEffect(() => {
-        async function loadData() {
-            try {
-                if (localStorage.getItem("role") && localStorage.getItem("token")) {
-                    setAuthData(
-                        localStorage.getItem("token"),
-                        localStorage.getItem("role")
-                    );
-                }
-                const response = await fetchCategories();
-                const itemResponse = await fetchItems();
-                setCategories(response.data);
-                setItemsData(itemResponse.data);
-            } catch (err) {
-                console.error("Failed to load categories:", err);
-            }
-        }
+        // don’t run this effect for these roles
+        const blockedRoles = new Set(['ROLE_STOCK_CLERK', 'ROLE_GUEST']); // <- your list
 
-        loadData();
-    }, [auth.token]);
+        const norm = (r) => (r || '').trim().toUpperCase().startsWith('ROLE_') ? r.trim().toUpperCase()
+            : `ROLE_${(r || '').trim().toUpperCase()}`;
+
+        if (!auth.token) return;                 // no token → skip
+        if (blockedRoles.has(norm(auth.role))) return; // role is blocked → skip
+
+        (async function loadData() {
+            try {
+                if (localStorage.getItem('role') && localStorage.getItem('token')) {
+                    setAuthData(localStorage.getItem('token'), localStorage.getItem('role'));
+                }
+                const [cats, items] = await Promise.all([fetchCategories(), fetchItems()]);
+                setCategories(cats.data);
+                setItemsData(items.data);
+            } catch (err) {
+                console.error('Failed to load categories:', err);
+            }
+        })();
+    }, [auth.token, auth.role]); // include role so guard works reliably
+
 
     const setAuthData = (token, role) => {
         setAuth({token, role});

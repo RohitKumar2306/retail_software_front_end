@@ -44,6 +44,7 @@ const Dashboard = () => {
     }, [choice]);
 
     if (loading) {
+        console.log(localStorage.getItem('role'))
         return <div className="loading">Loading...</div>;
     }
 

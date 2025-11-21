@@ -42,10 +42,10 @@ const App = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/explore" element={<Explore />} />
                 //Admin-Only Routes
-                <Route path="/items" element={<ProtectedRoute element={<ManageItems />} allowedRoutes={['ROLE_ADMIN']} />} />
-                <Route path="/categories" element={<ProtectedRoute element={<ManageCategory />} allowedRoutes={['ROLE_ADMIN']} />} />
+                <Route path="/items" element={<ProtectedRoute element={<ManageItems />} allowedRoutes={['ROLE_ADMIN', 'ROLE_MANAGER']} />} />
+                <Route path="/categories" element={<ProtectedRoute element={<ManageCategory />} allowedRoutes={['ROLE_ADMIN', 'ROLE_MANAGER']} />} />
                 <Route path="/users" element={<ProtectedRoute element={<ManageUsers />} allowedRoutes={['ROLE_ADMIN']} />} />
-                <Route path="/manage_inventory" element={<ProtectedRoute element={<ManageInventory />} allowedRoutes={['ROLE_ADMIN']} />} />
+                <Route path="/manage_inventory" element={<ProtectedRoute element={<ManageInventory />} allowedRoutes={['ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_STOCK_CLERK']} />} />
                 <Route path="/login" element={<LoginRoute element={<Login />}/>} />
                 <Route path="/orders_history" element={<OrderHistory />} />
                 <Route path="/" element={<Dashboard />} />

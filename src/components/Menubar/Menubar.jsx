@@ -23,6 +23,8 @@ const Menubar = () => {
     }
 
     const isAdmin = auth.role === "ROLE_ADMIN";
+    const isManager = auth.role === "ROLE_MANAGER";
+    const isStockClerk = auth.role === "ROLE_STOCK_CLERK";
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-2">
@@ -41,7 +43,7 @@ const Menubar = () => {
                     <li className="nav-item">
                         <Link className={`nav-link ${isActive('/explore') ? 'fw-bold text-warning' : ''}`} to="/explore">Explore</Link>
                     </li>
-                    {isAdmin && (
+                    {(isAdmin || isManager) && (
                         <>
                             <li className="nav-item">
                                 <Link className={`nav-link ${isActive('/items') ? 'fw-bold text-warning' : ''}`} to="/items">Manage Items</Link>
@@ -49,13 +51,17 @@ const Menubar = () => {
                             <li className="nav-item">
                                 <Link className={`nav-link ${isActive('/categories') ? 'fw-bold text-warning' : ''}`} to="/categories">Manage Categories</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className={`nav-link ${isActive('/users') ? 'fw-bold text-warning' : ''}`} to="/users">Manage Users</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className={`nav-link ${isActive('/manage_inventory') ? 'fw-bold text-warning' : ''}`} to="/manage_inventory">Manage Inventory</Link>
-                            </li>
                         </>
+                    )}
+                    {isAdmin && (
+                        <li className="nav-item">
+                            <Link className={`nav-link ${isActive('/users') ? 'fw-bold text-warning' : ''}`} to="/users">Manage Users</Link>
+                        </li>
+                    )}
+                    {(isAdmin || isManager || isStockClerk) && (
+                        <li className="nav-item">
+                            <Link className={`nav-link ${isActive('/manage_inventory') ? 'fw-bold text-warning' : ''}`} to="/manage_inventory">Manage Inventory</Link>
+                        </li>
                     )}
                     <li className="nav-item">
                         <Link className={`nav-link ${isActive('/orders_history') ? 'fw-bold text-warning' : ''}`} to="/orders_history">Order History</Link>

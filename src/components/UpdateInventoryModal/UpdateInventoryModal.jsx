@@ -4,7 +4,13 @@ import {AppContext} from "../../context/AppContext.jsx";
 
 const UpdateInventoryModal = ({ show, onClose, item, onSubmit }) => {
     const { categories } = useContext(AppContext);
+    const {auth} = useContext(AppContext);
+
     const [loading, setLoading] = useState(false);
+
+    const isAdmin = auth.role === "ROLE_ADMIN";
+    const isManager = auth.role === "ROLE_MANAGER";
+    const isStockClerk = auth.role === "ROLE_STOCK_CLERK";
 
     // Initialize fields (empty by default; placeholders show current values)
     const [data, setData] = useState({
@@ -80,38 +86,41 @@ const UpdateInventoryModal = ({ show, onClose, item, onSubmit }) => {
                             <div className="fw">{item?.name}</div>
                         </div>
 
-                        <div className="mb-3">
-                            <label className="form-label" htmlFor="categoryId">Category</label>
-                            <select
-                                name="categoryId"
-                                id="categoryId"
-                                className="form-control"
-                                onChange={onChangeHandler}
-                                value={data.categoryId}
-                            >
-                                <option value="">{currentCategory}</option>
-                                {categories.map((category) => (
-                                    <option key={category.categoryId} value={category.categoryId}>
-                                        {category.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <div className="mb-3 mt-3">
-                            <label htmlFor="price" className="form-label">Price</label>
-                            <input
-                                type="number"
-                                name="price"
-                                id="price"
-                                className="form-control"
-                                placeholder={String(currentPrice)}
-                                onChange={onChangeHandler}
-                                value={data.price}
-                                min="0"
-                                step="0.01"
-                            />
-                        </div>
+                        {(isAdmin || isManager) && (
+                            <div>
+                                <div className="mb-3">
+                                    <label className="form-label" htmlFor="categoryId">Category</label>
+                                    <select
+                                        name="categoryId"
+                                        id="categoryId"
+                                        className="form-control"
+                                        onChange={onChangeHandler}
+                                        value={data.categoryId}
+                                    >
+                                        <option value="">{currentCategory}</option>
+                                        {categories.map((category) => (
+                                            <option key={category.categoryId} value={category.categoryId}>
+                                                {category.name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="mb-3 mt-3">
+                                    <label htmlFor="price" className="form-label">Price</label>
+                                    <input
+                                        type="number"
+                                        name="price"
+                                        id="price"
+                                        className="form-control"
+                                        placeholder={String(currentPrice)}
+                                        onChange={onChangeHandler}
+                                        value={data.price}
+                                        min="0"
+                                        step="0.01"
+                                    />
+                                </div>
+                            </div>
+                        )}
 
                         <div className="row mt-3">
                             <div className="col-6">

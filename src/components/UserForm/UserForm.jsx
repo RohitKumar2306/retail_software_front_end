@@ -9,7 +9,7 @@ const UserForm = ({setUsers}) => {
         name: "",
         email: "",
         password: "",
-        role: "ROLE_USER"
+        role: ""
     });
 
 
@@ -24,7 +24,7 @@ const UserForm = ({setUsers}) => {
                 name: "",
                 email: "",
                 password: "",
-                role: "ROLE_USER"
+                role: ""
             })
         } catch (error) {
             console.log(error);
@@ -78,6 +78,19 @@ const UserForm = ({setUsers}) => {
                                        onChange = {onChangeHandler}
                                        value={data.password}
                                 />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="role" className="form-label">Role</label>
+                                <select type="role"
+                                       name="role"
+                                       id="role"
+                                       className="form-control"
+                                       onChange = {onChangeHandler}
+                                        value={data.role} >
+                                    <option value="ROLE_USER">Role User</option>
+                                    <option value="ROLE_MANAGER">Role Manager</option>
+                                    <option value="ROLE_STOCK_CLERK">Role Stock Alert</option>
+                                </select>
                             </div>
                             <button type="submit" className="btn btn-warning w-100" disabled={loading}>
                                 {loading ? 'Loading...' : 'Save'}
