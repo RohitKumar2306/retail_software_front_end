@@ -4,6 +4,7 @@ import {fetchDashboardData, fetchTopSellers} from "../../service/Dashboard.js";
 import toast from "react-hot-toast";
 import {AppContext} from "../../context/AppContext.jsx";
 import LowStockWidget from "../../components/LowStockWidget/LowStockWidget.jsx";
+import SpendingSnapshot from "../../components/SpendingSnapshot/SpendingSnapshot.jsx";
 
 
 const Dashboard = () => {
@@ -202,7 +203,11 @@ const Dashboard = () => {
                     </div>
                 </div>
             ) : (
-                <div>User Activity</div>
+                <div className="stats-grid mt-2">
+                    <div className="col-12">
+                        <SpendingSnapshot defaultWindow={7} />
+                    </div>
+                </div>
                 )
             }
         </>
