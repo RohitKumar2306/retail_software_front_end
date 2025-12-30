@@ -30,7 +30,6 @@ client/
 ├── package.json
 ├── package-lock.json
 ├── README.md
-├── STRUCTURE.txt             # generated folder tree (optional)
 └── vite.config.js
 ```
 
