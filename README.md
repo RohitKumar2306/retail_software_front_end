@@ -7,6 +7,7 @@ Supports **JWT auth**, **USER/ADMIN roles**, **Cart → Checkout**, **Orders**, 
 
 ## Folder Structure
 
+```
 client/
 ── .idea/                    # IDE settings (optional)
 ├── node_modules/             # dependencies (auto-generated)
@@ -31,6 +32,7 @@ client/
 ├── README.md
 ├── STRUCTURE.txt             # generated folder tree (optional)
 └── vite.config.js
+```
 
 ## 📸 Screenshots
 
