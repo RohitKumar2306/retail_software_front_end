@@ -8,7 +8,7 @@ Supports **JWT auth**, **USER/ADMIN roles**, **Cart → Checkout**, **Orders**, 
 ## Folder Structure
 
 client/
-├── .idea/                    # IDE settings (optional)
+── .idea/                    # IDE settings (optional)
 ├── node_modules/             # dependencies (auto-generated)
 ├── public/                   # static files (favicon, etc.)
 ├── screenshots/              # README screenshots for each page
