@@ -7,145 +7,29 @@ Supports **JWT auth**, **USER/ADMIN roles**, **Cart → Checkout**, **Orders**, 
 
 ## Folder Structure
 
-.
+client/
+├── .idea/                    # IDE settings (optional)
+├── node_modules/             # dependencies (auto-generated)
+├── public/                   # static files (favicon, etc.)
+├── screenshots/              # README screenshots for each page
+├── src/
+│   ├── assets/               # images, icons, static assets
+│   ├── components/           # reusable UI components
+│   ├── context/              # Context API (cart/auth/items state)
+│   ├── pages/                # route-level pages/screens
+│   ├── service/              # API calls (axios services)
+│   ├── util/                 # helpers, constants, formatters
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
-├── package-lock.json
 ├── package.json
-├── public
+├── package-lock.json
 ├── README.md
-├── screenshots
-│   ├── cartItems.png
-│   ├── login.png
-│   ├── Payment
-│   │   ├── cashPayment.png
-│   │   └── razorPay.png
-│   ├── Role_Admin
-│   │   ├── dashboard.png
-│   │   ├── explore.png
-│   │   ├── manageCategories.png
-│   │   ├── manageInventory.png
-│   │   ├── manageItems.png
-│   │   ├── manageUsers.png
-│   │   ├── orderHistory.png
-│   │   └── updateInventory.png
-│   └── Role_User
-│       ├── dashboard.png
-│       ├── explore.png
-│       └── orderHistory.png
-├── src
-│   ├── App.css
-│   ├── App.jsx
-│   ├── assets
-│   │   ├── assets.js
-│   │   ├── login.jpg
-│   │   ├── logo.png
-│   │   ├── man_profile.png
-│   │   ├── upload.png
-│   │   └── woman_profile.png
-│   ├── components
-│   │   ├── CartItems
-│   │   │   ├── CartItems.css
-│   │   │   └── CartItems.jsx
-│   │   ├── CartSummary
-│   │   │   ├── CartSummary.css
-│   │   │   └── CartSummary.jsx
-│   │   ├── Category
-│   │   │   ├── Category.css
-│   │   │   └── Category.jsx
-│   │   ├── CategoryForm
-│   │   │   └── CategoryForm.jsx
-│   │   ├── CategoryList
-│   │   │   ├── CategoryList.css
-│   │   │   └── CategoryList.jsx
-│   │   ├── CustomerForm
-│   │   │   ├── CustomerForm.css
-│   │   │   └── CustomerForm.jsx
-│   │   ├── DisplayCategory
-│   │   │   ├── DisplayCategory.css
-│   │   │   └── DisplayCategory.jsx
-│   │   ├── DisplayItems
-│   │   │   ├── DisplayItems.css
-│   │   │   └── DisplayItems.jsx
-│   │   ├── Item
-│   │   │   ├── Item.css
-│   │   │   └── Item.jsx
-│   │   ├── ItemForm
-│   │   │   └── ItemForm.jsx
-│   │   ├── ItemList
-│   │   │   ├── ItemList.css
-│   │   │   └── ItemList.jsx
-│   │   ├── LowStockWidget
-│   │   │   ├── LowStockWidget.css
-│   │   │   └── LowStockWidget.jsx
-│   │   ├── Menubar
-│   │   │   ├── Menubar.css
-│   │   │   └── Menubar.jsx
-│   │   ├── ReceiptPopUp
-│   │   │   ├── Print.css
-│   │   │   ├── ReceiptPopUp.css
-│   │   │   └── ReceiptPopUp.jsx
-│   │   ├── SearchBox
-│   │   │   └── SearchBox.jsx
-│   │   ├── SpendingSnapshot
-│   │   │   ├── SpendingSnapshot.css
-│   │   │   └── SpendingSnapshot.jsx
-│   │   ├── TopSellers
-│   │   │   ├── TopSellers.css
-│   │   │   └── TopSellers.jsx
-│   │   ├── UpdateInventoryModal
-│   │   │   ├── UpdateInventoryModal.css
-│   │   │   └── UpdateInventoryModal.jsx
-│   │   ├── UserForm
-│   │   │   └── UserForm.jsx
-│   │   └── UserList
-│   │       └── UserList.jsx
-│   ├── context
-│   │   ├── AppContext.jsx
-│   │   └── AppContextProvider.jsx
-│   ├── index.css
-│   ├── main.jsx
-│   ├── pages
-│   │   ├── Dashboard
-│   │   │   ├── Dashboard.css
-│   │   │   └── Dashboard.jsx
-│   │   ├── Explore
-│   │   │   ├── Explore.css
-│   │   │   └── Explore.jsx
-│   │   ├── Login
-│   │   │   ├── Login.css
-│   │   │   └── Login.jsx
-│   │   ├── ManageCategory
-│   │   │   ├── ManageCategory.css
-│   │   │   └── ManageCategory.jsx
-│   │   ├── ManageInventory
-│   │   │   ├── ManageInventory.css
-│   │   │   └── ManageInventory.jsx
-│   │   ├── ManageItems
-│   │   │   ├── ManageItems.css
-│   │   │   └── ManageItems.jsx
-│   │   ├── ManageUsers
-│   │   │   ├── ManageUsers.css
-│   │   │   └── ManageUsers.jsx
-│   │   ├── NotFound
-│   │   │   ├── NotFound.css
-│   │   │   └── NotFound.jsx
-│   │   └── OrderHistory
-│   │       ├── OrderHistory.css
-│   │       └── OrderHistory.jsx
-│   ├── service
-│   │   ├── Analytics.js
-│   │   ├── AuthService.js
-│   │   ├── CategoryService.js
-│   │   ├── Dashboard.js
-│   │   ├── ItemService.js
-│   │   ├── OrderService.js
-│   │   ├── PaymentService.js
-│   │   └── UserService.js
-│   └── util
-│       └── constants.js
-├── STRUCTURE.txt
+├── STRUCTURE.txt             # generated folder tree (optional)
 └── vite.config.js
 
 ## 📸 Screenshots
