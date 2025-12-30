@@ -9,15 +9,10 @@ Supports **JWT auth**, **USER/ADMIN roles**, **Cart → Checkout**, **Orders**, 
 
 client/
 ├── .idea/                    # IDE settings (optional)
-
 ├── node_modules/             # dependencies (auto-generated)
-
 ├── public/                   # static files (favicon, etc.)
-
 ├── screenshots/              # README screenshots for each page
-
 ├── src/
-
 │   ├── assets/               # images, icons, static assets
 │   ├── components/           # reusable UI components
 │   ├── context/              # Context API (cart/auth/items state)
